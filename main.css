@@ -1,2 +1,10 @@
 .watch {
 }
+
+.hour-hand {
+  transform-origin: 200px 200px;
+}
+
+.second-hand {
+  transform-origin: 200px 200px;
+}
