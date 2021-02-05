@@ -1,14 +1,9 @@
-.watch {
-}
-
-.hours-hand {
+.hours-hand, .seconds-hand, .minutes-hand, .minute-marks rect {
   transform-origin: 200px 200px;
 }
 
-.seconds-hand {
-  transform-origin: 200px 200px;
-}
-
-.minutes-hand {
-  transform-origin: 200px 200px;
+.minute-marks rect {
+  fill: white;
+  width: 1;
+  height: 10;
 }

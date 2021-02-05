@@ -7,6 +7,18 @@ const hoursHand = document.querySelector(".hours-hand");
 const minutesHand = document.querySelector(".minutes-hand");
 const secondsHand = document.querySelector(".seconds-hand");
 
+const minuteMarks = document.querySelector(".minute-marks");
+
+function renderMinuteMarks() {
+  for (let degrees = 0; degrees < 360; degrees+=360/60) {
+    const mark = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    mark.setAttribute("x", "199.5");
+    mark.setAttribute("y", "2");
+    mark.style.transform = `rotate(${degrees}deg)`;
+    minuteMarks.appendChild(mark);
+  }
+}
+
 function updateHands() {
   const date = new Date();
 
@@ -26,5 +38,5 @@ function updateHands() {
 }
 
 
-
+renderMinuteMarks();
 requestAnimationFrame(updateHands);
