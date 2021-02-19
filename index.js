@@ -8,11 +8,28 @@ const minutesHand = document.querySelector(".minutes-hand");
 const secondsHand = document.querySelector(".seconds-hand");
 
 const minuteMarks = document.querySelector(".minute-marks");
+const minuteLabels = document.querySelector(".minute-labels");
 
 function renderMinuteMarks() {
   for (let degrees = 0; degrees < 360; degrees += 360 / 60) {
     const isAnHour = degrees % 30 === 0;
-    if (!isAnHour) {
+    if (isAnHour) {
+      const minuteLabel = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "text"
+      );
+      let position = getPositionFromDegrees(degrees);
+      let minutes = (degrees || 360) / 6;
+      minuteLabel.textContent = minutes < 10 ? `0${minutes}` : `${minutes}`;
+      minuteLabel.style.fontFamily = "Roboto";
+      minuteLabel.style.fontSize = "12px";
+      minuteLabel.setAttribute("x", `${position.x}`);
+      minuteLabel.setAttribute("y", `${position.y}`);
+      minuteLabel.setAttribute("text-anchor", "middle");
+      minuteLabel.setAttribute("dominant-baseline", "middle");
+      minuteLabel.setAttribute("fill", "white");
+      minuteLabels.appendChild(minuteLabel);
+    } else {
       const mark = document.createElementNS(
         "http://www.w3.org/2000/svg",
         "rect"
@@ -23,6 +40,15 @@ function renderMinuteMarks() {
       minuteMarks.appendChild(mark);
     }
   }
+}
+
+function getPositionFromDegrees(degrees) {
+  const degreesToRadian = degrees => (degrees * 2 * Math.PI) / 360;
+  const rad = degreesToRadian(degrees);
+  return {
+    x: 200 + 190 * Math.sin(rad),
+    y: 200 - 190 * Math.cos(rad)
+  };
 }
 
 function updateHands() {
