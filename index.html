@@ -1,32 +1,54 @@
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <style type="text/css">
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+    </style>
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <svg class="watch" width="400" height="400">
       <circle cx="200" cy="200" r="200" fill="black" />
+      <g class="minute-marks"></g>
+      <g class="minute-labels"></g>
       <g class="hours-hand">
         <rect width="4" height="20" x="198" y="178" fill="white"></rect>
-        <rect width="10" height="100" x="195" y="82" fill="black" stroke="white" rx="5" style="stroke-width: 2;"></rect>
+        <rect
+          width="10"
+          height="100"
+          x="195"
+          y="82"
+          fill="black"
+          stroke="white"
+          rx="5"
+          style="stroke-width: 2;"
+        ></rect>
       </g>
       <g class="minutes-hand">
         <rect width="4" height="20" x="198" y="178" fill="white"></rect>
-        <rect width="10" height="165" x="195" y="17" fill="black" stroke="white" rx="5" style="stroke-width: 2;"></rect>
+        <rect
+          width="10"
+          height="165"
+          x="195"
+          y="17"
+          fill="black"
+          stroke="white"
+          rx="5"
+          style="stroke-width: 2;"
+        ></rect>
       </g>
-      <g class="minute-marks"></g>
       <g class="donut">
         <circle cx="200" cy="200" r="6" fill="white"></circle>
         <circle cx="200" cy="200" r="4" fill="red"></circle>
         <circle cx="200" cy="200" r="2" fill="black"></circle>
       </g>
       <g class="seconds-hand">
-        <rect  width="2" height="193" x="199" y="5" fill="red" rx="1"></rect>
-        <rect  width="2" height="20" x="199" y="202" fill="red" rx="1"></rect>
+        <rect width="2" height="193" x="199" y="5" fill="red" rx="1"></rect>
+        <rect width="2" height="20" x="199" y="202" fill="red" rx="1"></rect>
       </g>
     </svg>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
